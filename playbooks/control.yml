@@ -1,0 +1,12 @@
+---
+- hosts: control
+  become: true
+  tasks:
+    - name: intsall essential tools
+      apt: name={{item}} state=present update_cache=yes
+      with_items:
+        - curl
+        - vim
+        - git
+        - htop
+        - ncdu
